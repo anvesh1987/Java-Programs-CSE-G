@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Addition</title>
 
-     <style>
+  <style>
 
         body {
+			 user-select: none;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
             font-family: Arial, sans-serif;
             margin: 20px;
             background-color: #f4f4f4;
@@ -59,10 +63,27 @@
     </style>
 		<script>
         // Disable right-click
-        document.addEventListener("contextmenu", function(event) {
-            event.preventDefault();
-            alert("Right-click is disabled on this page.");
-        });
+       document.addEventListener("contextmenu", function(event) {
+         event.preventDefault();
+          alert("Right-click is disabled on this page.");
+       });
+		
+		document.addEventListener("contextmenu", e => e.preventDefault());
+
+		document.addEventListener("copy", e => {
+		e.preventDefault();
+		alert("Copying is disabled.");
+});
+
+document.addEventListener("keydown", e => {
+    if (
+        (e.ctrlKey && ["c", "u", "a", "x"].includes(e.key.toLowerCase())) ||
+        e.key === "F12"
+    ) {
+        e.preventDefault();
+    }
+});
+		
     </script>
 </head>
 <body>
