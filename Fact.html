@@ -77,25 +77,26 @@
 
     <div class="box left">  
         <p>
-           import java.util.*;<br>
-import java.lang.*;<br>
-public class Factorial {<br>
-	public static void main(String[] args) {<br>
-		System.out.println("Enter a Number:");<br>
-		Scanner sc = new Scanner(System.in);<br>
-		int a = sc.nextInt();<br>
-		
-		int fact=1;<br>
-		int i,n=10;<br>
-		
-		for(i=1;i<=n;i++) {<br>
-			fact=fact*i;<br>
-		}<br>
-		
-		System.out.println("Factorial="+fact);<br>
-		
-	}<br>
+           package oppsJavaProg;<br>
+import java.util.Scanner;<br>
 
+public class Factorial {<br>
+    public static void main(String[] args) {<br>
+        Scanner sc = new Scanner(System.in);<br>
+
+        System.out.print("Enter a number: ");<br>
+        int n = sc.nextInt();<br>
+
+        long factorial = 1;<br>
+
+        for (int i = 1; i <= n; i++) {<br>
+            factorial *= i;<br>
+        }<br>
+
+        System.out.println("Factorial of " + n + " is " + factorial);<br>
+
+        sc.close();<br>
+    }<br>
 }<br>
 
 
