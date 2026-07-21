@@ -2,6 +2,42 @@
 <html>
 <head>
     <title>Menu</title>
+	    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            background-image: url("anu.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            opacity: 0.4;      /* Transparency */
+            z-index: -1;       /* Keep image behind content */
+        }
+
+        h1 {
+            text-align: center;
+            color: darkblue;
+            margin-top: 100px;
+        }
+
+        p {
+            text-align: center;
+            font-size: 22px;
+        }
+    </style>
+
+
 	<script>
         // Disable right-click
         document.addEventListener("contextmenu", function(event) {
@@ -31,7 +67,21 @@
 <li><a href="Assignment.html" target="content">Assignment Operators</a><br></li>
 <li><a href="Increment.html" target="content">Increment & Decrement Operators</a><br></li>
 <li><a href="Conditional.html" target="content">Conditional Operators</a><br></li>
-<li><a href="Bitwise.html" target="content">Bitwise Operators</a><br></li>
+<li><a href="Bitwise.html" target="content">Bitwise Operators</a><br></li> 
+<li><a href="IfCondition.html" target="content">If Condition</a><br></li>
+<li><a href="IfElseExample.html" target="content">If Else Example</a><br></li>
+<li><a href="IfElseIfExample.html" target="content">If Else-If Example</a><br></li>
+<li><a href="Switch.html" target="content">Switch</a><br></li>
+<li><a href="ForLoop.html" target="content">For Loop</a><br></li>
+<li><a href="ForEach.html" target="content">For Each</a><br></li>
+<li><a href="WhileExample.html" target="content">While Loop</a><br></li>
+<li><a href="DoWhileExample.html" target="content">Do While Loop</a><br></li>
+<li><a href="NestedLoop.html" target="content">Nested Loop</a><br></li>
+<li><a href="BreakLoop.html" target="content">Break Loop</a><br></li>
+<li><a href="Continue.html" target="content">Continue Loop</a><br></li>
+<li><a href="Return.html" target="content">Return Loop</a><br></li>
+<li><a href="Typecasting.html" target="content">Type casting</a><br></li>
+<li><a href="TypeConversion.html" target="content">Type Conversion</a><br></li>
 </ul>
 <!--<p align="right"> <</p>-->
 
