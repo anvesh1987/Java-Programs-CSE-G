@@ -35,6 +35,13 @@
             text-align: center;
             font-size: 22px;
         }
+		.datetime-display {
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin: 20px;
+        }
 
 		
 		
@@ -47,6 +54,35 @@
             event.preventDefault();
             alert("Right-click is disabled on this page.");
         });
+		
+        function updateClock() {
+            const now = new Date();
+            
+            // Format options for a clean look (e.g., "Friday, July 24, 2026, 3:53 PM")
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: 'numeric', 
+                minute: 'numeric', 
+                second: 'numeric',
+                hour12: true 
+            };
+            
+            // Convert to a localized human-readable string
+            const formattedDateTime = now.toLocaleString('en-US', options);
+            
+            // Inject the string into our HTML element
+            document.getElementById('live-clock').textContent = formattedDateTime;
+        }
+
+        // Run the clock immediately when the page loads
+        updateClock();
+        
+        // Update the clock every 1000 milliseconds (1 second)
+        setInterval(updateClock, 1000);
+
     </script> 
 </head>
 
@@ -154,6 +190,28 @@
         </ol>
     </li> -->
 
+</ol>
+<ol>
+<div style="display:inline-block; width:30%; border:1px solid black;padding:10px;">
+<ol><ol><ol start="7">
+    <li>Constructors
+        <ol type="a">
+<li><a href="DefaultConstructor.html" target="content">Default Constructor</a><br></li>
+<li><a href="ParameterizedConstructor.html" target="content">Parameterized Constructor</a><br></li>
+<li><a href="ConstructorOverloading.html" target="content">Constructor Overloading</a><br></li>
+<li><a href="DefaultModifier.html" target="content">Default Modifier</a><br></li>
+<li><a href="PrivateModifier.html" target="content">Private Modifier</a><br></li>
+<li><a href="ProctectedModifier.html" target="content">Proctected Modifier</a><br></li>
+<li><a href="PublicModifier.html" target="content">Public Modifier</a><br></li>
+<li><a href="ThisInstancevariables.html" target="content">This Instance Variables</a><br></li>
+<li><a href="ThisCurrentClassMethod.html" target="content">This Current Class Method</a><br></li>
+<li><a href="ThisConstructorChain.html" target="content">This Constructor Chain</a><br></li>
+<li><a href="ThisCurrentobject.html" target="content">This Current Object</a><br></li>
+<li><a href="ThisReturningobject.html" target="content">This Returning Object</a><br></li>
+        </ol>
+    </li>
+ <br>
+</div>
 </ol>
 <!--<p align="right"> <</p>-->
 
