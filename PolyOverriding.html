@@ -90,7 +90,7 @@ document.addEventListener("keydown", e => {
 <body>
 
     <div class="box center">
-        <h4>Super Keyword - Method Level
+        <h4>Polymorphism - Method Overriding
 
 
 </h4>
@@ -102,33 +102,33 @@ document.addEventListener("keydown", e => {
     <div class="box left">  
         <p>
 
-package oppsJavaProg;<br>
-class Animal5<br>
+
+package inheritance;<br>
+
+class Walking<br>
 {<br>
-void eat()<br>
-{<br>
-System.out.println("eating...");<br>
+    void walk()<br>
+    {<br>
+        System.out.println("Man walking fastly");<br>
+    }<br>
 }<br>
-}<br>
-class Doggie extends Animal5<br>
+
+class Man extends Walking<br>
 {<br>
-void eat()<br>
-{<br>
-System.out.println("eating bread...");<br>
+    void walk()<br>
+    {<br>
+        System.out.println("Man walking slowly");<br>
+        super.walk();<br>
+    }<br>
 }<br>
-void dispay()<br>
-{<br>
-eat();<br>
-super.eat();<br>
-}<br>
-}<br>
-class Supermethod<br>
-{<br>
-public static void main(String args[])<br>
-{<br>
-	Doggie d=new Doggie();<br>
-d.dispay();<br>
-}<br>
+
+class PolyOverriding<br>
+{
+    public static void main(String args[])<br>
+    {<br>
+        Man m = new Man();<br>
+        m.walk();<br>
+    }<br>
 }<br>
 
 

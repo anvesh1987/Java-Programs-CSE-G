@@ -90,7 +90,7 @@ document.addEventListener("keydown", e => {
 <body>
 
     <div class="box center">
-        <h4>Super Keyword - Method Level
+        <h4>Abstract Class
 
 
 </h4>
@@ -102,33 +102,36 @@ document.addEventListener("keydown", e => {
     <div class="box left">  
         <p>
 
+
 package oppsJavaProg;<br>
-class Animal5<br>
+abstract class Shape<br>
 {<br>
-void eat()<br>
-{<br>
-System.out.println("eating...");<br>
+    abstract void draw();<br>
 }<br>
-}<br>
-class Doggie extends Animal5<br>
+
+class Rectangle extends Shape<br>
 {<br>
-void eat()<br>
-{<br>
-System.out.println("eating bread...");<br>
+    void draw()<br>
+    {<br>
+        System.out.println("drawing rectangle");<br>
+    }<br>
 }<br>
-void dispay()<br>
+
+class Circle1 extends Shape<br>
 {<br>
-eat();<br>
-super.eat();<br>
+    void draw()<br>
+    {<br>
+        System.out.println("drawing circle");<br>
+    }<br>
 }<br>
-}<br>
-class Supermethod<br>
+
+class Abstractclass<br>
 {<br>
-public static void main(String args[])<br>
-{<br>
-	Doggie d=new Doggie();<br>
-d.dispay();<br>
-}<br>
+    public static void main(String args[])<br>
+    {<br>
+        Shape s = new Circle1();<br>
+        s.draw();<br>
+    }<br>
 }<br>
 
 

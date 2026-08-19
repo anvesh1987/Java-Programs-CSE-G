@@ -90,7 +90,7 @@ document.addEventListener("keydown", e => {
 <body>
 
     <div class="box center">
-        <h4>Super Keyword - Method Level
+        <h4>Object Class - Hashcode Method
 
 
 </h4>
@@ -102,33 +102,29 @@ document.addEventListener("keydown", e => {
     <div class="box left">  
         <p>
 
+
 package oppsJavaProg;<br>
-class Animal5<br>
-{<br>
-void eat()<br>
-{<br>
-System.out.println("eating...");<br>
+
+
+class Blockchain<br>
+{
+	  int minerid = 492;<br>
 }<br>
-}<br>
-class Doggie extends Animal5<br>
+class Miner<br>
 {<br>
-void eat()<br>
-{<br>
-System.out.println("eating bread...");<br>
+  
+    String Blocknode = "CHS281093";<br>
 }<br>
-void dispay()<br>
+public class HashCodeExample<br>
 {<br>
-eat();<br>
-super.eat();<br>
-}<br>
-}<br>
-class Supermethod<br>
-{<br>
-public static void main(String args[])<br>
-{<br>
-	Doggie d=new Doggie();<br>
-d.dispay();<br>
-}<br>
+    public static void main(String args[])<br>
+    {<br>
+    	Blockchain s = new Blockchain();<br>
+    	Miner m = new Miner();<br>
+
+        System.out.println("Hash Code Blockchain: " + s.hashCode());<br>
+        System.out.println("Hash Code Miner: " + m.hashCode());<br>
+    }<br>
 }<br>
 
 

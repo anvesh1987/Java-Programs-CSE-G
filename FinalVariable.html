@@ -90,7 +90,7 @@ document.addEventListener("keydown", e => {
 <body>
 
     <div class="box center">
-        <h4>Super Keyword - Method Level
+        <h4>Final Keyword - Variable Level
 
 
 </h4>
@@ -102,32 +102,19 @@ document.addEventListener("keydown", e => {
     <div class="box left">  
         <p>
 
-package oppsJavaProg;<br>
-class Animal5<br>
+package inheritance;<br>
+
+class FinalVariable<br>
+{
+final int speedlimit=90; <br>
+void run()<br>
 {<br>
-void eat()<br>
-{<br>
-System.out.println("eating...");<br>
-}<br>
-}<br>
-class Doggie extends Animal5<br>
-{<br>
-void eat()<br>
-{<br>
-System.out.println("eating bread...");<br>
-}<br>
-void dispay()<br>
-{<br>
-eat();<br>
-super.eat();<br>
-}<br>
-}<br>
-class Supermethod<br>
-{<br>
+speedlimit = 400;// Compile Time Error<br>
+}
 public static void main(String args[])<br>
 {<br>
-	Doggie d=new Doggie();<br>
-d.dispay();<br>
+	FinalVariable obj=new FinalVariable(); 
+	obj.run();<br>
 }<br>
 }<br>
 

@@ -90,7 +90,7 @@ document.addEventListener("keydown", e => {
 <body>
 
     <div class="box center">
-        <h4>Super Keyword - Method Level
+        <h4>Abstract Method
 
 
 </h4>
@@ -102,36 +102,74 @@ document.addEventListener("keydown", e => {
     <div class="box left">  
         <p>
 
+
 package oppsJavaProg;<br>
-class Animal5<br>
+
+import java.util.*;<br>
+abstract class AreaFormula<br>
 {<br>
-void eat()<br>
-{<br>
-System.out.println("eating...");<br>
-}<br>
-}<br>
-class Doggie extends Animal5<br>
-{<br>
-void eat()<br>
-{<br>
-System.out.println("eating bread...");<br>
-}<br>
-void dispay()<br>
-{<br>
-eat();<br>
-super.eat();<br>
-}<br>
-}<br>
-class Supermethod<br>
-{<br>
-public static void main(String args[])<br>
-{<br>
-	Doggie d=new Doggie();<br>
-d.dispay();<br>
-}<br>
+    int length, breadth, radius;<br>
+
+    Scanner input = new Scanner(System.in);<br>
+
+    abstract void printArea();<br>
 }<br>
 
+class Rectangle extends AreaFormula<br>
+{<br>
+    void printArea()<br>
+    {<br>
+        System.out.println("*** Finding the Area of Rectangle ***");<br>
+        System.out.print("Enter length and breadth: ");<br>
 
+        length = input.nextInt();<br>
+        breadth = input.nextInt();<br>
+
+        System.out.println("The area of Rectangle is: " + length * breadth);<br>
+    }<br>
+}<br>
+
+class Triangle extends AreaFormula<br>
+{<br>
+    void printArea()<br>
+    {<br>
+        System.out.println("\n*** Finding the Area of Triangle ***");<br>
+        System.out.print("Enter Base And Height: ");<br>
+
+        length = input.nextInt();<br>
+        breadth = input.nextInt();<br>
+
+        System.out.println("The area of Triangle is: " + (length * breadth) / 2);<br>
+    }<br>
+}<br>
+
+class Cricle extends AreaFormula<br>
+{<br>
+    void printArea()<br>
+    {<br>
+        System.out.println("\n*** Finding the Area of Circle ***");<br>
+        System.out.print("Enter Radius: ");<br>
+
+        radius = input.nextInt();<br>
+
+        System.out.println("The area of Circle is: " + 3.14f * radius * radius);<br>
+    }<br>
+}<br>
+
+public class AbstractMethod<br>
+{<br>
+    public static void main(String[] args)<br>
+    {<br>
+        Rectangle rec = new Rectangle();<br>
+        rec.printArea();<br>
+
+        Triangle tri = new Triangle();<br>
+        tri.printArea();<br>
+
+        Cricle cri = new Cricle();<br>
+        cri.printArea();<br>
+    }<br>
+}<br>
 
 
 

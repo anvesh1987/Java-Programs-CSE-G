@@ -90,7 +90,7 @@ document.addEventListener("keydown", e => {
 <body>
 
     <div class="box center">
-        <h4>Super Keyword - Method Level
+        <h4>Polymorphism - Method Overloading
 
 
 </h4>
@@ -102,32 +102,32 @@ document.addEventListener("keydown", e => {
     <div class="box left">  
         <p>
 
-package oppsJavaProg;<br>
-class Animal5<br>
+
+package inheritance;<br>
+
+class PolyMethodoverloading<br>
 {<br>
-void eat()<br>
+void sum(int a, int b)<br>
 {<br>
-System.out.println("eating...");<br>
+System.out.println(a+b);<br>
+}<br>
+void sum(int a, int b, int c)<br>
+{<br>
+System.out.println(a+b+c);<br>
+}<br>
+void sum(float a, float b)<br>
+{<br>
+System.out.println(a+b);<br>
 }<br>
 }<br>
-class Doggie extends Animal5<br>
-{<br>
-void eat()<br>
-{<br>
-System.out.println("eating bread...");<br>
-}<br>
-void dispay()<br>
-{<br>
-eat();<br>
-super.eat();<br>
-}<br>
-}<br>
-class Supermethod<br>
+class Methodload<br>
 {<br>
 public static void main(String args[])<br>
 {<br>
-	Doggie d=new Doggie();<br>
-d.dispay();<br>
+	PolyMethodoverloading obj=new PolyMethodoverloading(); <br>
+	obj.sum(10, 20);<br>
+	obj.sum(10, 20, 30);<br>
+	obj.sum(10.05f, 15.20f);<br>
 }<br>
 }<br>
 
