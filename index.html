@@ -73,6 +73,146 @@ td {
 }
 
 </style>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+}
+
+/* HEADER */
+
+.header {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+
+/* CONTAINER */
+
+.container {
+    width: 95%;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+
+/* YEAR SELECT */
+
+.year-box {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+select {
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+
+/* NEXT HOLIDAY */
+
+.next {
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+}
+
+.next h2 {
+    color: #667eea;
+}
+
+#nextHoliday {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#countdown {
+    color: #e11d48;
+    margin-top: 10px;
+}
+
+
+/* TABLE */
+
+.table-box {
+    overflow-x: auto;
+    background: white;
+    border-radius: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #667eea;
+    color: white;
+    padding: 15px;
+}
+
+td {
+    padding: 13px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+tr:hover {
+    background: #f1f3ff;
+}
+
+.date {
+    color: #667eea;
+    font-weight: bold;
+}
+
+.general {
+    color: green;
+    font-weight: bold;
+}
+
+.optional {
+    color: orange;
+    font-weight: bold;
+}
+
+.provisional {
+    color: red;
+    font-size: 12px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+    th,
+    td {
+        padding: 9px;
+        font-size: 13px;
+    }
+
+}
+
+</style>
   
 </head>
 
@@ -242,8 +382,11 @@ td {
               <div class="sent-message">Your subscription request has been sent. Thank you!</div>
             </form>
           </div>
+		  
         </div>
       </div>
+	  
+	  
 
     </section><!-- /Hero Section -->
 
@@ -608,6 +751,96 @@ td {
 </div>
 
 
+<br> <br>
+
+<!-- HEADER -->
+
+<div class="header">
+
+    <h1>🇮🇳 Telangana Holiday Calendar</h1>
+
+    <p>Year-Wise Upcoming Holidays</p>
+
+</div>
+
+
+<div class="container">
+
+
+<!-- YEAR SELECTOR -->
+
+<div class="year-box">
+
+    <label>
+        <b>Select Year:</b>
+    </label>
+
+    <select id="year"
+            onchange="showHolidays()">
+
+        <option value="2026">2026</option>
+        <option value="2027">2027</option>
+        <option value="2028">2028</option>
+        <option value="2029">2029</option>
+        <option value="2030">2030</option>
+
+    </select>
+
+</div>
+
+
+<!-- NEXT HOLIDAY -->
+
+<div class="next">
+
+    <h2>🎉 Next Holiday</h2>
+
+    <div id="nextHoliday">
+        Loading...
+    </div>
+
+    <div id="countdown">
+        Loading...
+    </div>
+
+</div>
+
+
+<!-- HOLIDAY TABLE -->
+
+<div class="table-box">
+
+<table>
+
+<thead>
+
+<tr>
+
+    <th>#</th>
+
+    <th>Date</th>
+
+    <th>Day</th>
+
+    <th>Holiday</th>
+
+    <th>Type</th>
+
+</tr>
+
+</thead>
+
+<tbody id="holidayTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
         </div>
 
       </div>
@@ -720,6 +953,386 @@ fetch("https://api.ipify.org?format=json")
     .then(data => {
         document.getElementById("ip").innerHTML = data.ip;
     });
+	
+	
+	/* =========================================
+   HOLIDAY DATA
+========================================= */
+
+const holidays = [
+
+/* =========================================
+   2026
+========================================= */
+
+{date:"2026-09-04",name:"Sri Krishnashtami",type:"General"},
+{date:"2026-09-14",name:"Vinayaka Chavithi",type:"General"},
+{date:"2026-10-02",name:"Mahatma Gandhi Jayanthi",type:"General"},
+{date:"2026-10-18",name:"Saddula Bathukamma",type:"General"},
+{date:"2026-10-19",name:"Maharnavami",type:"General"},
+{date:"2026-10-20",name:"Vijaya Dasami",type:"General"},
+{date:"2026-10-21",name:"Following Day of Vijaya Dasami",type:"General"},
+{date:"2026-11-08",name:"Deepavali",type:"General"},
+{date:"2026-11-24",name:"Karthika Pournami",type:"Optional"},
+{date:"2026-12-24",name:"Christmas Eve",type:"Optional"},
+{date:"2026-12-25",name:"Christmas",type:"General"},
+{date:"2026-12-26",name:"Boxing Day",type:"Optional"},
+
+
+/* =========================================
+   2027
+========================================= */
+
+{date:"2027-01-14",name:"Bhogi",type:"Provisional"},
+{date:"2027-01-15",name:"Sankranti",type:"Provisional"},
+{date:"2027-01-16",name:"Kanumu",type:"Provisional"},
+{date:"2027-01-26",name:"Republic Day",type:"Provisional"},
+{date:"2027-03-10",name:"Eid-ul-Fitr",type:"Provisional"},
+{date:"2027-03-22",name:"Holi",type:"Provisional"},
+{date:"2027-04-14",name:"Ambedkar Jayanti",type:"Provisional"},
+{date:"2027-04-15",name:"Sri Rama Navami",type:"Provisional"},
+{date:"2027-08-15",name:"Independence Day",type:"Provisional"},
+{date:"2027-08-25",name:"Sri Krishnashtami",type:"Provisional"},
+{date:"2027-09-04",name:"Vinayaka Chavithi",type:"Provisional"},
+{date:"2027-10-02",name:"Gandhi Jayanti",type:"Provisional"},
+{date:"2027-10-09",name:"Vijaya Dasami",type:"Provisional"},
+{date:"2027-10-29",name:"Deepavali",type:"Provisional"},
+{date:"2027-12-25",name:"Christmas",type:"Provisional"},
+
+
+/* =========================================
+   2028
+========================================= */
+
+{date:"2028-01-14",name:"Bhogi",type:"Provisional"},
+{date:"2028-01-15",name:"Sankranti",type:"Provisional"},
+{date:"2028-01-16",name:"Kanumu",type:"Provisional"},
+{date:"2028-01-26",name:"Republic Day",type:"Provisional"},
+{date:"2028-03-11",name:"Holi",type:"Provisional"},
+{date:"2028-03-27",name:"Ugadi",type:"Provisional"},
+{date:"2028-04-03",name:"Sri Rama Navami",type:"Provisional"},
+{date:"2028-08-15",name:"Independence Day",type:"Provisional"},
+{date:"2028-08-23",name:"Vinayaka Chavithi",type:"Provisional"},
+{date:"2028-09-27",name:"Vijaya Dasami",type:"Provisional"},
+{date:"2028-10-02",name:"Gandhi Jayanti",type:"Provisional"},
+{date:"2028-10-17",name:"Deepavali",type:"Provisional"},
+{date:"2028-12-25",name:"Christmas",type:"Provisional"},
+
+
+/* =========================================
+   2029
+========================================= */
+
+{date:"2029-01-14",name:"Bhogi",type:"Provisional"},
+{date:"2029-01-15",name:"Sankranti",type:"Provisional"},
+{date:"2029-01-16",name:"Kanumu",type:"Provisional"},
+{date:"2029-01-26",name:"Republic Day",type:"Provisional"},
+{date:"2029-03-01",name:"Holi",type:"Provisional"},
+{date:"2029-04-14",name:"Ambedkar Jayanti",type:"Provisional"},
+{date:"2029-04-22",name:"Sri Rama Navami",type:"Provisional"},
+{date:"2029-08-15",name:"Independence Day",type:"Provisional"},
+{date:"2029-09-11",name:"Vinayaka Chavithi",type:"Provisional"},
+{date:"2029-10-02",name:"Gandhi Jayanti",type:"Provisional"},
+{date:"2029-10-16",name:"Vijaya Dasami",type:"Provisional"},
+{date:"2029-11-05",name:"Deepavali",type:"Provisional"},
+{date:"2029-12-25",name:"Christmas",type:"Provisional"},
+
+
+/* =========================================
+   2030
+========================================= */
+
+{date:"2030-01-14",name:"Bhogi",type:"Provisional"},
+{date:"2030-01-15",name:"Sankranti",type:"Provisional"},
+{date:"2030-01-16",name:"Kanumu",type:"Provisional"},
+{date:"2030-01-26",name:"Republic Day",type:"Provisional"},
+{date:"2030-03-20",name:"Holi",type:"Provisional"},
+{date:"2030-04-03",name:"Ugadi",type:"Provisional"},
+{date:"2030-04-12",name:"Sri Rama Navami",type:"Provisional"},
+{date:"2030-04-14",name:"Ambedkar Jayanti",type:"Provisional"},
+{date:"2030-08-15",name:"Independence Day",type:"Provisional"},
+{date:"2030-08-21",name:"Sri Krishnashtami",type:"Provisional"},
+{date:"2030-09-01",name:"Vinayaka Chavithi",type:"Provisional"},
+{date:"2030-10-02",name:"Gandhi Jayanti",type:"Provisional"},
+{date:"2030-10-06",name:"Vijaya Dasami",type:"Provisional"},
+{date:"2030-10-26",name:"Deepavali",type:"Provisional"},
+{date:"2030-12-25",name:"Christmas",type:"Provisional"}
+
+];
+
+
+/* =========================================
+   TODAY
+========================================= */
+
+function getToday() {
+
+    const d = new Date();
+
+    d.setHours(0,0,0,0);
+
+    return d;
+
+}
+
+
+/* =========================================
+   DISPLAY HOLIDAYS
+========================================= */
+
+function showHolidays() {
+
+    const selectedYear =
+        document.getElementById("year").value;
+
+    const table =
+        document.getElementById("holidayTable");
+
+    table.innerHTML = "";
+
+
+    const today = getToday();
+
+
+    let list = holidays.filter(h => {
+
+        const date =
+            new Date(h.date + "T00:00:00");
+
+        return date.getFullYear()
+                .toString() === selectedYear;
+
+    });
+
+
+    /*
+       Hide past holidays only for
+       the current year.
+    */
+
+    if (selectedYear ==
+        today.getFullYear().toString()) {
+
+        list = list.filter(h => {
+
+            return new Date(
+                h.date + "T00:00:00"
+            ) >= today;
+
+        });
+
+    }
+
+
+    list.sort((a,b) => {
+
+        return new Date(a.date) -
+               new Date(b.date);
+
+    });
+
+
+    /* NO HOLIDAYS */
+
+    if (list.length === 0) {
+
+        table.innerHTML = `
+        <tr>
+            <td colspan="5">
+                No upcoming holidays.
+            </td>
+        </tr>
+        `;
+
+        document.getElementById(
+            "nextHoliday"
+        ).innerHTML =
+        "No upcoming holidays.";
+
+        document.getElementById(
+            "countdown"
+        ).innerHTML = "";
+
+        return;
+
+    }
+
+
+    /* DISPLAY TABLE */
+
+    list.forEach((holiday,index) => {
+
+        const date =
+            new Date(
+                holiday.date + "T00:00:00"
+            );
+
+
+        const formattedDate =
+            date.toLocaleDateString(
+                "en-IN",
+                {
+                    day:"2-digit",
+                    month:"long",
+                    year:"numeric"
+                }
+            );
+
+
+        const day =
+            date.toLocaleDateString(
+                "en-IN",
+                {
+                    weekday:"long"
+                }
+            );
+
+
+        let typeClass = "";
+
+        if (holiday.type === "General") {
+            typeClass = "general";
+        }
+
+        if (holiday.type === "Optional") {
+            typeClass = "optional";
+        }
+
+        if (holiday.type === "Provisional") {
+            typeClass = "provisional";
+        }
+
+
+        table.innerHTML += `
+
+        <tr>
+
+            <td>
+                ${index + 1}
+            </td>
+
+            <td class="date">
+                ${formattedDate}
+            </td>
+
+            <td>
+                ${day}
+            </td>
+
+            <td class="holiday">
+                🇮🇳 ${holiday.name}
+            </td>
+
+            <td class="${typeClass}">
+                ${holiday.type}
+            </td>
+
+        </tr>
+
+        `;
+
+    });
+
+
+    /* NEXT HOLIDAY */
+
+    const next = list[0];
+
+    const nextDate =
+        new Date(
+            next.date + "T00:00:00"
+        );
+
+
+    document.getElementById(
+        "nextHoliday"
+    ).innerHTML =
+
+    `🇮🇳 ${next.name}
+     <br>
+     <small>
+     ${nextDate.toLocaleDateString(
+        "en-IN",
+        {
+            day:"2-digit",
+            month:"long",
+            year:"numeric"
+        }
+     )}
+     </small>`;
+
+
+    updateCountdown(nextDate);
+
+}
+
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
+function updateCountdown(nextDate) {
+
+    const now = new Date();
+
+    const difference =
+        nextDate - now;
+
+
+    const days = Math.ceil(
+        difference /
+        (1000 * 60 * 60 * 24)
+    );
+
+
+    if (days <= 0) {
+
+        document.getElementById(
+            "countdown"
+        ).innerHTML =
+        "🎉 Holiday is today!";
+
+    }
+
+    else {
+
+        document.getElementById(
+            "countdown"
+        ).innerHTML =
+        `⏳ ${days} day(s) remaining`;
+
+    }
+
+}
+
+
+/* =========================================
+   INITIAL DISPLAY
+========================================= */
+
+showHolidays();
+  
+  
+  
+  
+  
+  
+  
+/* =================================================
+   START
+   ================================================= */
+
+displayHolidays();
+
+showNextHoliday();
+
+updateCountdown();
+
+
+// Update countdown every minute
+setInterval(updateCountdown, 60000);
+	
+	
 	</script>
 
 </body>
